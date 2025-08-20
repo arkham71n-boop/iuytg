@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - SHRINE</title>
+    <link rel="stylesheet" href="login-styles.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000000">
+    <link rel="icon" type="image/png" href="favicon.ico">
+</head>
+<body>
+    <div id="particles-js"></div>
+    
+    <div class="login-container">
+        <div class="login-box">
+            <div class="logo-container">
+                <h1 class="shrine-logo">SHRINE</h1>
+            </div>
+            <h2>@Sougx.Sensi</h2>
+            
+            <div class="input-group">
+                <input type="text" id="username" placeholder="Usuario" autocomplete="off">
+            </div>
+            
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Contraseña" autocomplete="off">
+            </div>
+            
+            <button id="login-btn">Ingresar</button>
+            
+            <div id="error-message"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Configuración de partículas
+            particlesJS('particles-js', {
+                particles: {
+                    number: {
+                        value: 80,
+                        density: {
+                            enable: true,
+                            value_area: 800
+                        }
+                    },
+                    color: {
+                        value: '#8A2BE2' // Color morado para las partículas
+                    },
+                    shape: {
+                        type: 'circle',
+                    },
+                    opacity: {
+                        value: 0.5,
+                        random: false,
+                    },
+                    size: {
+                        value: 3,
+                        random: true,
+                    },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: '#8A2BE2', // Color morado para las líneas
+                        opacity: 0.4,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 2,
+                        direction: 'none',
+                        random: false,
+                        straight: false,
+                        out_mode: 'out',
+                        bounce: false,
+                    }
+                },
+                interactivity: {
+                    detect_on: 'canvas',
+                    events: {
+                        onhover: {
+                            enable: true,
+                            mode: 'grab'
+                        },
+                        onclick: {
+                            enable: true,
+                            mode: 'push'
+                        },
+                        resize: true
+                    },
+                    modes: {
+                        grab: {
+                            distance: 140,
+                            line_linked: {
+                                opacity: 1
+                            }
+                        },
+                        push: {
+                            particles_nb: 4
+                        },
+                    }
+                },
+                retina_detect: true
+            });
+
+            // Lógica de inicio de sesión
+            const loginBtn = document.getElementById('login-btn');
+            const usernameInput = document.getElementById('username');
+            const passwordInput = document.getElementById('password');
+            const errorMessage = document.getElementById('error-message');
+
+            loginBtn.addEventListener('click', function() {
+                const username = usernameInput.value.trim();
+                const password = passwordInput.value.trim();
+
+                if (username === 'sougx' && password === '127113') {
+                    // Credenciales correctas, redirigir a la página principal
+                    window.location.href = 'index.html';
+                } else {
+                    // Credenciales incorrectas, mostrar mensaje de error
+                    errorMessage.textContent = 'Usuario o contraseña incorrectos';
+                    errorMessage.style.display = 'block';
+                    
+                    // Limpiar el mensaje de error después de 3 segundos
+                    setTimeout(() => {
+                        errorMessage.style.display = 'none';
+                    }, 3000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

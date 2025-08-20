@@ -1,0 +1,12 @@
+{
+    "name": "SHRINE BY @SOUGX.SENSI",
+    "short_name": "SHRINE",
+    "description": "Aplicación SHRINE por @SOUGX.SENSI",
+    "start_url": "./login.html",
+    "display": "standalone",
+    "background_color": "#000000",
+    "theme_color": "#8A2BE2",
+    "icons": [],
+    "orientation": "portrait",
+    "prefer_related_applications": false
+}
